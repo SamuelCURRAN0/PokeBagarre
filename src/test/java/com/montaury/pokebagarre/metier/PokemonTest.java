@@ -1,12 +1,15 @@
 package com.montaury.pokebagarre.metier;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class PokemonTest {
+
+    // Version avec asset that
     @Test
-    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_gagner_avec_attaque() {
+    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_gagner_avec_attaque_v2() {
         // Given
         Pokemon pokemonUn = new Pokemon("PokemonUn", "", new Stats(10,20));
         Pokemon pokemonDeux = new Pokemon("PokemonDeux", "", new Stats(30,5));
@@ -15,11 +18,10 @@ class PokemonTest {
         boolean pokemonDeuxGagnant = pokemonDeux.estVainqueurContre(pokemonUn);
 
         // Then
-        assert pokemonDeuxGagnant;
+        assertThat(pokemonDeuxGagnant).isTrue();
     }
-
     @Test
-    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_gagner_avec_defence() {
+    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_gagner_avec_defence_v2() {
         // Given
         Pokemon pokemonUn = new Pokemon("PokemonUn", "", new Stats(10,10));
         Pokemon pokemonDeux = new Pokemon("PokemonDeux", "", new Stats(10,5));
@@ -28,11 +30,10 @@ class PokemonTest {
         boolean pokemonUnGagnant = pokemonUn.estVainqueurContre(pokemonDeux);
 
         // Then
-        assert pokemonUnGagnant;
+        assertThat(pokemonUnGagnant).isTrue();
     }
-
     @Test
-    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_gagner_grace_a_sa_position() {
+    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_gagner_grace_a_sa_position_v2() {
         // Given
         Pokemon pokemonUn = new Pokemon("PokemonUn", "", new Stats(30,20));
         Pokemon pokemonDeux = new Pokemon("PokemonDeux", "", new Stats(30,20));
@@ -41,8 +42,9 @@ class PokemonTest {
         boolean pokemonUnGagnant = pokemonUn.estVainqueurContre(pokemonDeux);
 
         // Then
-        assert pokemonUnGagnant;
+        assertThat(pokemonUnGagnant).isTrue();
     }
+
 
 }
 
