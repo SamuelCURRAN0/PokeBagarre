@@ -45,7 +45,31 @@ class PokemonTest {
         assertThat(pokemonUnGagnant).isTrue();
     }
 
+    // Négatif
+    @Test
+    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_perdre_attaque_v2() {
+        // Given
+        Pokemon pokemonUn = new Pokemon("PokemonUn", "", new Stats(10,20));
+        Pokemon pokemonDeux = new Pokemon("PokemonDeux", "", new Stats(30,5));
 
+        // When
+        boolean pokemonUnGagnant = pokemonUn.estVainqueurContre(pokemonDeux);
+
+        // Then
+        assertThat(pokemonUnGagnant).isFalse();
+    }
+    @Test
+    void test_est_vainqueur_contre_deuxieme_pokemon_devrait_perdre_a_cause_de_defencev2() {
+        // Given
+        Pokemon pokemonUn = new Pokemon("PokemonUn", "", new Stats(10,10));
+        Pokemon pokemonDeux = new Pokemon("PokemonDeux", "", new Stats(10,5));
+
+        // When
+        boolean pokemonDeuxGagnant = pokemonDeux.estVainqueurContre(pokemonUn);
+
+        // Then
+        assertThat(pokemonDeuxGagnant).isFalse();
+    }
 }
 
 
