@@ -38,9 +38,6 @@ jobs:
 
     - name: Test with Gradle Wrapper
       run: ./gradlew test
-      
-    - name: Test Reporter
-      uses: dorny/test-reporter@v1.8.0
             
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
